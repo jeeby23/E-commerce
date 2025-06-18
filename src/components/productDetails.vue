@@ -41,13 +41,21 @@
           <p class="font-serif text-[15px] ml-1">Klarna</p> or
           <p class="font-serif text-[15px] ml-1">afterpay</p>
         </span>
-        <div class="border-[1px] border-slate-400  px-2 my-2 rounded w-20">
-        <div>
-             <span> <button @click="decrementItem(item.id)">-</button></span>
-                <span class="px-2">{{ item.quantity || 1 }}</span>
-             <span> <button @click="incrementItem(item.id)">+</button> </span>
-            </div>
-            </div>
+     <div class="border-[1px] border-slate-400  px-2 my-2 rounded w-20">
+  <div>
+    <span>
+      <button @click="decrementItem">-</button>
+    </span>
+    <span class="px-2">{{ cartItem.quantity }}</span>
+    <span>
+      <button @click="incrementItem">+</button>
+    </span>
+  </div>
+  
+</div>
+<div >  <button @click="cartStore.addToCart(card)" class="mt-2 bg-[#303E48] text-white px-7 py-2 w-full rounded hover:bg-gray-800">
+  {{ AddtoBag }}
+</button></div>
    </div>
   </div>
   
@@ -70,14 +78,15 @@ const product = BestSellerr.find(product => product.id === productId) || cardds.
 
 
 
-const incrementItem = (itemId) => {
-      const item = cartItems.value.find((item) => item.id === itemId)
-      cartStore.addItem(item)
-   };
-   const decrementItem = (itemId) => {
-    cartStore.reduceItem(itemId)
-   };
+const cartItem = computed(() => cartStore.cart.find(i => i.id === product.id) || { quantity: 1 })
 
+const incrementItem = () => {
+  cartStore.addToCart(product)
+}
+const decrementItem = () => {
+  cartStore.decreaseQuantity(product)
+}
+const AddtoBag = 'Add to BAG'
    
 // const reduceCart = () => {
 //     cartStore.cart = cartStrore

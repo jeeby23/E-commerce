@@ -16,6 +16,12 @@ export const useCartStore = defineStore('cart', () => {
   function removeFromCart(item) {
     cart.value = cart.value.filter(i => i !== item)
   }
+  function decreaseQuantity(item) {
+    const found = cart.value.find(i => i.id === item.id)
+    if (found && found.quantity > 1) {
+      found.quantity--
+    }
+  }
 
-  return { cart, addToCart, removeFromCart }
+  return { cart, addToCart, removeFromCart,decreaseQuantity }
 })
