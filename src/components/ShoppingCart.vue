@@ -3,7 +3,7 @@
     <div class="flex-1 w-full md:w-2/3">
       <div v-if="cartStore.cart.length === 0">
        <span>
-        <p class="font-serif text-[2rem] border-b-[1px] border-blacck">Your Bag</p>
+        <p class="font-serif text-[1rem] md:text-[2rem] border-b-[1px] border-blacck">Your Bag</p>
        </span>
        <div class="flex justify-center items-center">
        <span class="">
@@ -26,7 +26,7 @@
           </span>
           <div class="border-b-[0.5px] border-slate-400 w-auto  pb-3">
             <span class="font-serif text-[2rem]">Your Bags</span>
-            <span v-if="cartCount > 0" class="pl-[200px] md:pl-[330px]">
+            <span v-if="cartCount > 0" class="pl-[100px] md:pl-[330px]">
               {{ cartCount }} items
             </span>
           </div>
