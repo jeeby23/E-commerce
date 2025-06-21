@@ -107,7 +107,7 @@
       </div>
     </div>
   </div>
-  <footer>
+ <footer>
     <div class="bg-[#303E48] h-auto w-full text-white py-4 mt-10">
           <div class="flex justify-center items-center w-full space-x-4">
             <div class="flex-grow border-t border-gray-300 max-w-[300px]"></div>
@@ -166,9 +166,9 @@
       <h2 class="inline-block"> Keep in touch</h2> 
       <p class="py-3">Receive 15% OFF your first order when you sign-up for our emails.</p>
     </span>
-    <input v-model="footerEmail" type="email" placeholder="Email Address*" class="text-black mb-2 w-[70%] py-2 rounded">
-    <input v-model="footerPassword" type="password" placeholder="Password*"  class="text-black mb-2 w-[70%] py-2 rounded ">
-    <button @click="sendFooterEmail" type="submit" class="bg-[#303E48] text-white py-2 px-4 rounded border-[0.5px] w-[70%] my-5">Sign Up</button>
+    <input v-model="footerEmail" type="email" placeholder="Email Address*" class="text-black mb-2 w-full md:w-[70%] py-2 rounded">
+    <input v-model="footerPassword" type="password" placeholder="Password*"  class="text-black mb-2 w-full md:w-[70%] py-2 rounded ">
+    <button @click="sendFooterEmail" type="submit" class="bg-[#303E48] text-white py-2 px-4 rounded border-[0.5px] w-full md:w-[70%] my-5">Sign Up</button>
     <div>
       <span class="px-2 text-[2rem]"><fa :icon="['fab', 'facebook-f']" /></span>
       <span class="px-2 text-[2rem]"><fa :icon="['fab', 'twitter']" /></span>
@@ -191,10 +191,10 @@
       <li v-for="item in footerContacts" :key="item" class="text-[14px] py-2 text-white cursor-pointer">{{ item }}</li>
     </ul>
   </div>
-  <div class="flex flex-co l min-w-[150px]">
+  <div class="flex flex-col min-w-[150px]">
     <h2 class="text-[20px]">Help Center</h2>
     <ul class="list-none">
-      <li v-for="help in footerHelpers" :key="help" class="text-[14px] py-2 text-white cursor-pointer">{{ help }}</li>
+      <li v-for="help in footerHelpers" :key="help.id" class="text-[14px] py-2 text-white cursor-pointer">{{ help }}</li>
     </ul>
   </div>
   <div class="flex flex-col min-w-[150px]">

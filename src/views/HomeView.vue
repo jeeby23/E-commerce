@@ -1,15 +1,16 @@
 <template>
   <div class="home min-h-screen">
     <div class="relative w-full h-screen">
-      <swiper
-        :modules="[Navigation]"
-         :navigation="{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        }"
-        @slideChange="onSlideChange"
-        @swiper="onSwiperInit"
-        class="mySwiper h-full w-full">
+     <swiper
+  :modules="[Navigation]"
+  :navigation="{
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }"
+  :loop="false"
+  @slideChange="onSlideChange"
+  @swiper="onSwiperInit"
+  class="mySwiper h-full w-full">
         <swiper-slide class="h-full w-full relative"> 
           <img :src="images[0]" alt="Image 1" class="w-full h-[85%] object-fill mt-1 box-border" />
           <div  class="absolute inset-0">
@@ -38,13 +39,15 @@
         </swiper-slide>
       </swiper>
       <button
-        class="swiper-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 text-black  "
-        v-show="showPrev"
-      ></button>
-      <button
-        class="swiper-button-next absolute right-4 top-1/2 -translate-y-1/2 z-10 text-black  "
-        v-show="showNext"
-      ></button>
+  class="swiper-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 text-black"
+  :class="{ 'swiper-button-disabled': !showPrev }"
+  :disabled="!showPrev"
+></button>
+<button
+  class="swiper-button-next absolute right-4 top-1/2 -translate-y-1/2 z-10 text-black"
+  :class="{ 'swiper-button-disabled': !showNext }"
+  :disabled="!showNext"
+></button>
     </div>
   <productsVue :best="' Shop Best Sellers!'" :cardds="cardds" :addToCart="addToCart" />
   <div class="px-[80px]"> 

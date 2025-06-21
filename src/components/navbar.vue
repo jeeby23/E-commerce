@@ -71,7 +71,7 @@
         <transition name="slide">
           <div
             v-if="showMenu"
-            class="fixed top-0 left-0 h-screen w-[500px] bg-white text-black shadow-xl z-50 p-4 overflow-y-auto" >
+            class="fixed top-0 left-0 h-screen w-[300px] md:w-[500px] bg-white text-black shadow-xl z-50 p-4 overflow-y-auto" >
             <button @click="toggleMenu" class="text-2xl font-bold absolute top-4 right-4">
               &times;
             </button>
@@ -234,7 +234,7 @@
 <transition name="slide-fade" class="block md:hidden">
   <div
     v-if="isHamburgerOpen"
-    class="fixed top-0 left-0 w-[400px] h-full bg-white z-50 shadow-lg px-6 py-10 overflow-y-auto"
+    class="fixed top-0 left-0 w-[400px] h-full bg-white z-30 shadow-lg px-6 py-10 overflow-y-auto"
   >
     <button    @click="isHamburgerOpen = false" class="absolute top-4 right-4 text-2xl">&times;</button>
     <div class="space-y-6 mt-12 text-lg">
